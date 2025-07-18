@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - Dribbble</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/256/179/179316.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            min-height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: #fafafb;
+        }
+        .standalone-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .standalone-left {
+            width: 100%;
+            max-width: 460px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f2;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="standalone-page">
+        <div class="standalone-left">
+            <div class="auth-header">
+                <a href="index.html">
+                    <img src="https://brandlogos.net/wp-content/uploads/2023/10/dribbble-logo_brandlogos.net_if8uk.png" alt="Dribbble" class="auth-brand-logo">
+                </a>
+            </div>
+            
+            <div class="auth-body">
+                <div class="dribbble-icon-circle">
+                    <img src="https://cdn-icons-png.flaticon.com/256/179/179316.png" alt="Dribbble" class="auth-dribbble-icon">
+                </div>
+                
+                <div class="auth-view">
+                    <h2>Welcome to Dribbble</h2>
+                    <p class="auth-subtitle">Create your account and discover world-class design talent.</p>
+                    
+                    <button class="google-auth-btn" type="button">
+                        <svg class="google-svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.9c2.28-2.1 3.6-5.2 3.6-9.15z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.9-3.05c-1.08.72-2.45 1.16-4.03 1.16-3.1 0-5.74-2.1-6.68-4.94H1.28v3.15C3.25 21.36 7.31 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.32 14.26c-.24-.72-.38-1.49-.38-2.26s.14-1.54.38-2.26V6.59H1.28C.46 8.21 0 10.05 0 12s.46 3.79 1.28 5.41l4.04-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.64 1.28 6.59l4.04 3.15c.94-2.84 3.58-4.99 6.68-4.99z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <form class="auth-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter email address" required class="auth-input">
+                        <button type="submit" class="auth-submit-btn">Continue</button>
+                    </form>
+                    
+                    <p class="auth-terms">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+                    <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.auth-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.auth-submit-btn');
+            btn.textContent = 'Creating account...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = 'Account created!';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+            }, 600);
+        });
+
+        document.querySelector('.google-auth-btn').addEventListener('click', () => {
+            const span = document.querySelector('.google-auth-btn span');
+            span.textContent = 'Connecting with Google...';
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
+
